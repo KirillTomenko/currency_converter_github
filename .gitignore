@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+currency_rate.json
+.DS_Store

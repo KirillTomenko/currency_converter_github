@@ -1,0 +1,33 @@
+<svg width="680" height="300" viewBox="0 0 680 300" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Currency Converter — режим конвертации</title>
+<desc>Терминал показывает конвертацию 100 EUR в GBP из кэша</desc>
+<defs>
+  <style>
+    .mono { font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; font-size: 13px; }
+  </style>
+</defs>
+<rect width="680" height="300" rx="12" fill="#1a1b26"/>
+<rect x="1" y="1" width="678" height="298" rx="11" fill="none" stroke="#414868" stroke-width="1"/>
+<rect x="0" y="0" width="680" height="38" rx="12" fill="#16161e"/>
+<rect x="0" y="26" width="680" height="12" fill="#16161e"/>
+<circle cx="24" cy="19" r="6" fill="#ff5f57"/>
+<circle cx="44" cy="19" r="6" fill="#ffbd2e"/>
+<circle cx="64" cy="19" r="6" fill="#28c940"/>
+<text x="340" y="23" text-anchor="middle" class="mono" fill="#565f89" font-size="12">python cli.py — конвертация суммы</text>
+<text x="32" y="68" class="mono"><tspan fill="#565f89">Ваш выбор: </tspan><tspan fill="#7aa2f7">2</tspan></text>
+<text x="32" y="86" class="mono"><tspan fill="#565f89">  Из валюты (например, USD): </tspan><tspan fill="#7aa2f7">EUR</tspan></text>
+<text x="32" y="106" class="mono"><tspan fill="#7dcfff">📂 </tspan><tspan fill="#9ece6a">Данные взяты из кэша «currency_rate.json» (свежее 24 ч).</tspan></text>
+<text x="32" y="124" class="mono"><tspan fill="#565f89">  В валюту   (например, RUB): </tspan><tspan fill="#7aa2f7">GBP</tspan></text>
+<text x="32" y="142" class="mono"><tspan fill="#565f89">  Сумма                      : </tspan><tspan fill="#7aa2f7">100</tspan></text>
+<rect x="28" y="158" width="490" height="74" rx="6" fill="#16161e" stroke="#414868" stroke-width="0.5"/>
+<text x="48" y="182" class="mono">
+  <tspan fill="#c0caf5">100.0000 </tspan><tspan fill="#e0af68">EUR</tspan>
+  <tspan fill="#565f89">  =  </tspan>
+  <tspan fill="#9ece6a" font-weight="700" font-size="15">82.7800</tspan>
+  <tspan fill="#e0af68"> GBP</tspan>
+</text>
+<text x="48" y="202" class="mono"><tspan fill="#565f89">  курс: 1 EUR = 0.8278 GBP</tspan></text>
+<text x="48" y="220" class="mono"><tspan fill="#565f89">  источник: кэш  •  Mon, 14 Apr 2025</tspan></text>
+<text x="32" y="254" class="mono" fill="#414868">──────────────────────────────────────</text>
+<text x="32" y="276" class="mono"><tspan fill="#565f89">  1  Курсы   2  Конвертировать   </tspan><tspan fill="#bb9af7">0  Выход</tspan></text>
+</svg>
