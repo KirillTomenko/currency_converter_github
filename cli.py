@@ -2,7 +2,19 @@
 cli.py — интерфейс командной строки: мини-CLI для конвертера валют
 """
 
-from api_client import get_available_codes
+import sys
+
+# На Windows stdout/stderr нередко в cp1251 → эмодзи/символы могут валить программу.
+# Переключаем вывод на UTF-8 как можно раньше, до импортов модулей с print().
+try:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    if hasattr(sys.stderr, "reconfigure"):
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
+from api_client import get_available_codes, get_rates
 from storage import get_cached_or_update
 
 DISPLAY_CURRENCIES = ["RUB", "EUR", "GBP"]
@@ -61,7 +73,7 @@ def show_rates(base: str) -> None:
     if data is None:
         return
 
-    rates: dict = data.get("conversion_rates", {})
+    rates: dict = get_rates(data)
     updated = data.get("time_last_update_utc", "—")
     next_upd = data.get("time_next_update_utc", "—")
 
@@ -91,7 +103,7 @@ def convert_amount(from_cur: str, to_cur: str, amount: float) -> None:
     if data is None:
         return
 
-    rates: dict = data.get("conversion_rates", {})
+    rates: dict = get_rates(data)
     available = get_available_codes(data)
 
     if not validate_currency(to_cur, available):

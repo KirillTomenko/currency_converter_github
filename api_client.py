@@ -6,6 +6,22 @@ import requests
 
 BASE_URL = "https://open.er-api.com/v6/latest/{base}"
 
+def get_rates(data: dict) -> dict:
+    """
+    Возвращает словарь курсов из ответа API/кэша.
+
+    Поддерживает оба распространённых формата:
+    - open.er-api.com:      conversion_rates
+    - exchangerate-api.com: rates
+    """
+    rates = data.get("conversion_rates")
+    if isinstance(rates, dict):
+        return rates
+    rates = data.get("rates")
+    if isinstance(rates, dict):
+        return rates
+    return {}
+
 
 def get_currency_rates(base: str) -> dict | None:
     """
@@ -56,4 +72,4 @@ def get_currency_rates(base: str) -> dict | None:
 
 def get_available_codes(data: dict) -> list[str]:
     """Возвращает список всех доступных кодов валют из ответа API."""
-    return list(data.get("conversion_rates", {}).keys())
+    return list(get_rates(data).keys())
